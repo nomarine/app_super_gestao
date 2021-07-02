@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 class FornecedoresController extends Controller
 {
     public function index() {
-        return view('app.fornecedores');
+        $fornecedores = [
+            'EDP',
+            'Sabesp',
+            'Tanby',
+            'Peloggia'
+        ];
+        return view('app.fornecedores', compact('fornecedores'));
     }
 }
