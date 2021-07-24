@@ -11,35 +11,48 @@
 @endif --}}
 
 @isset($fornecedores)
+
+    {{---@php $fornecedores = [] @endphp---}}
     
-    @for($i = 0; isset($fornecedores[$i]); $i++) 
-        Fornecedor: {{ $fornecedores[$i]['nome'] }}
-        @unless($fornecedores[$i]['status'] == 'A')
+    @forelse($fornecedores as $indice => $fornecedor)
+        @if($loop->first) {{ $loop->count }} fornecedores cadastrados. <hr> @endif
+        Fornecedor: {{ $fornecedor['nome'] }}
+        @unless($fornecedor['status'] == 'A')
             <br>
-            Status: {{ $fornecedores[$i]['status'] }}
+            Status: {{ $fornecedor['status'] }}
         @endunless
         <br>
-        CNPJ: {{ $fornecedores[$i]['CNPJ'] ?? "Sem CNPJ" }}
+        CNPJ: {{ $fornecedor['CNPJ'] ?? "Sem CNPJ" }}
         <br>
-        Telefone: ({{ $fornecedores[$i]['ddd'] ?? "()" }}) {{ $fornecedores[$i]['telefone'] ?? "0000-0000" }} - 
-        @isset($fornecedores[$i]['ddd'])
-            @switch($fornecedores[$i]['ddd'])
+        Telefone: 
+        @isset($fornecedor['ddd'])
+            ({{ $fornecedor['ddd'] }}) {{ $fornecedor['telefone'] }}
+            @else
+                não cadastrado
+        @endisset
+        @isset($fornecedor['ddd'])
+            @switch($fornecedor['ddd'])
                 @case(12)
-                    Vale do Paraíba
+                    - Vale do Paraíba
                     @break
                 @case(21)
-                    Rio de Janeiro
+                    - Rio de Janeiro
                     @break
                 @case(718)
-                    New York
+                    - New York
                     @break
                 @default
-                    DDD não identificado
+                    - DDD não identificado
                     @break
             @endswitch
-        @endisset
+        @endisset    
         <hr>
-    @endfor
+        @if($loop->last) Fim dos registros. @endif
+
+        @empty
+            Sem fornecedores cadastrados.
+    @endforelse
+
 @endisset
 
 {{-- @unless($fornecedoreses) --}}

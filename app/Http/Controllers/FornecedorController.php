@@ -33,7 +33,7 @@ class FornecedorController extends Controller
                 'nome' => 'Ranne Informática', 
                 'status' => 'A', 
                 'cnpj' => null,
-                'ddd' => '718',
+                'ddd' => '713',
                 'telefone' => '59871920'
                 ]
         ];
