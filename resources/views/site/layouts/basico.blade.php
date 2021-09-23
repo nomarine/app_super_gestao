@@ -9,5 +9,4 @@
         @include('site.layouts._partials.topo')
         @yield('conteudo')
     </body>
-        @yield('rodape')
 </html>
