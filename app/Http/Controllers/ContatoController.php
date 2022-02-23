@@ -10,8 +10,8 @@ use Illuminate\Support\Str;
 class ContatoController extends Controller
 {
     public function contato(Request $request) {
-        $contato = new Contato;
-        /*        
+        /*
+        $contato = new Contato;  
 
         dd($request);
         
@@ -31,17 +31,31 @@ class ContatoController extends Controller
         
         $contato->getAttributes();
         $contato->save();
-        */
-        $faker = Faker::create();
-        $faker->addProvider(new Provider\pt_BR\PhoneNumber($faker));
 
         $contato->nome = $faker->name;
         $contato->telefone = $faker->cellphoneNumber;
         $contato->email = $faker->unique()->safeEmail;
         $contato->motivo_contato = $faker->numberBetween(1,3);
         $contato->mensagem = $faker->realText($faker->numberBetween(10,50));
+        */
+        $faker = Faker::create();
+        $faker->addProvider(new Provider\pt_BR\PhoneNumber($faker));
 
-        return view('site.contato', ['titulo' => 'Contato', 'nome' => $contato->nome]);
+        $contato = [
+            'nome' => $faker->name,
+            'telefone' => $faker->cellphoneNumber,
+            'email' => $faker->unique()->safeEmail,
+            'motivo_contato' => $faker->numberBetween(1,3),
+            'mensagem' => $faker->realText($faker->numberBetween(10,50))
+        ];
+
+        $motivos_contato = [
+            '1' => 'Dúvida',
+            '2' => 'Elogio',
+            '3' => 'Reclamação',
+        ];
+
+        return view('site.contato', ['titulo' => 'Contato', 'contato_faker' => $contato, 'motivos_contato' => $motivos_contato]);
     }
 
     public function salvar(Request $request){

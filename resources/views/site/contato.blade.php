@@ -10,12 +10,16 @@
 
         <div class="informacao-pagina">
             <div class="contato-principal">
-                @component('site.layouts._components.form_contato', ['classe' => 'borda-preta'])
-                    <p>Agradecemos o seu contato!</p>
-                    <p>:D</p>
+                @component('site.layouts._components.form_contato', 
+                    [
+                        'classe' => 'borda-preta', 
+                        'contato_faker' => $contato_faker,
+                        'motivos_contato' => $motivos_contato
+                    ])
                 @endcomponent
             </div>
         </div>  
     </div>
     @include('site.layouts._partials.rodape')
 @endsection
+
