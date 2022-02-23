@@ -54,5 +54,6 @@ class ContatoController extends Controller
         ]);
         Contato::create($request->all());
         
+        return redirect()->back()->with('sucesso', 'Conta registrada com sucesso!');
     }
 }
