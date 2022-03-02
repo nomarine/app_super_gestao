@@ -1,20 +1,28 @@
 {{ $slot }}
 <form action={{ route('site.contato') }} method="post">
     @csrf
-    <input name="nome" type="text" placeholder="Nome" class={{ $classe }} value="{{ $contato_faker['nome'] }}"> <!-- old('nome') -->
+    <input name="nome" type="text" placeholder="Nome" class={{ $classe }} value="{{ $contato_faker['nome'] ?? old('nome') }}"> <!-- old('nome') -->
     <br>
-    <input name="telefone" type="text" placeholder="Telefone" class={{ $classe }} value="{{ $contato_faker['telefone'] }}"> <!-- {{ old('telefone') }} -->
+    <input name="telefone" type="text" placeholder="Telefone" class={{ $classe }} value="{{ $contato_faker['telefone'] ?? old('telefone') }}"> <!-- {{ old('telefone') }} -->
     <br>
-    <input name="email" type="text" placeholder="E-mail" class={{ $classe }} value="{{ $contato_faker['email'] }}"><!-- { old('email') }} -->
+    <input name="email" type="text" placeholder="E-mail" class={{ $classe }} value="{{ $contato_faker['email'] ?? old('email') }}"><!-- { old('email') }} -->
     <br>
     <select name="motivo_contato" class={{ $classe }}> <!-- {{ old('motivo_contato') }} -->
         <option value="">Qual o motivo do contato?</option>
-        @foreach($motivos_contato as $key => $motivo_contato)
-            <option value={{$key}} {{ $contato_faker['motivo_contato'] == $key ? 'selected' : '' }}>{{ $motivo_contato }}</option>
+        @foreach($motivos_contato as $motivo_contato)
+            <option value={{ $motivo_contato->id }}
+                @if(@isset($contato_faker))
+                    {{ $contato_faker['motivo_contato'] ==$motivo_contato->id ? 'selected' : '' }}
+                @else
+                    {{ old('motivo_contato') == $motivo_contato->id ? 'selected' : '' }}
+                @endif
+            >
+                {{ $motivo_contato->motivo_contato }}
+            </option>
         @endforeach
     </select>
     <br>
-    <textarea name="mensagem" class={{ $classe }} placeholder="Preencha aqui a sua mensagem">{{ $contato_faker['mensagem'] }}</textarea> <!-- {{ old('mensagem') }} -->
+    <textarea name="mensagem" class={{ $classe }} placeholder="Preencha aqui a sua mensagem">{{ $contato_faker['mensagem'] ?? old('mensagem') }}</textarea> <!-- {{ old('mensagem') }} -->
     <br>
     <button type="submit" class={{ $classe }}>ENVIAR</button>
 </form>

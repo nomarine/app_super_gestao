@@ -6,6 +6,7 @@ use Faker\Factory as Faker;
 use Faker\Provider as Provider;
 use App\SiteContato as Contato;
 use Illuminate\Support\Str;
+use App\MotivoContato;
 
 class ContatoController extends Controller
 {
@@ -41,7 +42,7 @@ class ContatoController extends Controller
         $faker = Faker::create();
         $faker->addProvider(new Provider\pt_BR\PhoneNumber($faker));
 
-        $contato = [
+        $contato_faker = [
             'nome' => $faker->name,
             'telefone' => $faker->cellphoneNumber,
             'email' => $faker->unique()->safeEmail,
@@ -49,13 +50,14 @@ class ContatoController extends Controller
             'mensagem' => $faker->realText($faker->numberBetween(10,50))
         ];
 
-        $motivos_contato = [
-            '1' => 'Dúvida',
-            '2' => 'Elogio',
-            '3' => 'Reclamação',
-        ];
+        $motivos_contato = MotivoContato::all();
 
-        return view('site.contato', ['titulo' => 'Contato', 'contato_faker' => $contato, 'motivos_contato' => $motivos_contato]);
+        return view('site.contato', 
+            [
+                'titulo' => 'Contato', 
+                'contato_faker' => $contato_faker, 
+                'motivos_contato' => $motivos_contato
+            ]);
     }
 
     public function salvar(Request $request){
