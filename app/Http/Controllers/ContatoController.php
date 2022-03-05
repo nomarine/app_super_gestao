@@ -61,15 +61,26 @@ class ContatoController extends Controller
     }
 
     public function salvar(Request $request){
+        print_r($request->all());
+
         $request->validate([
             'nome' => 'required|min:3|max:50',
             'telefone' => 'required',
             'mensagem' => 'required',
             'motivo_contato' => 'required',
-            'email' => 'required|max:2000',
+            'email' => 'email',
         ]);
-        Contato::create($request->all());
-        
+
+        Contato::create([
+            'nome' => $request->input('nome'),
+            'telefone' => $request->input('telefone'),
+            'mensagem' => $request->input('mensagem'),
+            'motivos_contato_id' => $request->input('motivo_contato'),
+            'email' => $request->input('email')
+        ]);
+/* 
+        Contato::create($request->all()); */
+
         return redirect()->back()->with('sucesso', 'Conta registrada com sucesso!');
     }
 }

@@ -28,10 +28,10 @@
 </form>
 
 @if(session()->has('sucesso'))
-<div style="position: absolute; background-color: green; top: 0px; left: 0px; width: 100%; height: 25px; content-align: center">
+<div style="position: absolute; background-color: green; top: 0px; left: 0px; width: 100%; height: auto; content-align: center">
         {!! \Session::get('sucesso') !!}
-        <p>Agradecemos o seu contato!</p>
-        <p>:D</p>
+        <br>Agradecemos o seu contato!
+        <br>=D
 </div>
 @endif
 
