@@ -7,6 +7,7 @@ use Faker\Provider as Provider;
 use App\SiteContato as Contato;
 use Illuminate\Support\Str;
 use App\MotivoContato;
+use Illuminate\Support\Facades\DB;
 
 class ContatoController extends Controller
 {
@@ -71,7 +72,7 @@ class ContatoController extends Controller
             'email' => 'email',
         ]);
 
-        Contato::create([
+        $contato = Contato::create([
             'nome' => $request->input('nome'),
             'telefone' => $request->input('telefone'),
             'mensagem' => $request->input('mensagem'),
@@ -81,6 +82,19 @@ class ContatoController extends Controller
 /* 
         Contato::create($request->all()); */
 
-        return redirect()->back()->with('sucesso', 'Conta registrada com sucesso!');
+        return redirect()
+            ->route('site.contato_registro')
+            ->with('sucesso', 'Contato de número ' . $contato->id . ' registrada com sucesso!')
+            ->with(['motivo_id' => $contato->motivos_contato_id])
+            ->with(['contato' => $contato]);
+    }
+
+    public function registro(Request $request){
+        $motivo_desc = MotivoContato::find($request->session()->get('motivo_id'));
+
+        return view('site.contato_registro', [
+            'motivo_desc' => $motivo_desc,
+            'titulo' => 'Contato'
+        ]);
     }
 }

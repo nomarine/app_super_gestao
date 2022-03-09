@@ -20,6 +20,5 @@
             </div>
         </div>  
     </div>
-    @include('site.layouts._partials.rodape')
 @endsection
 
