@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PrincipalController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\LogAcessoMiddleware;
 
 /*
 |--------------------------------------------------------------------------

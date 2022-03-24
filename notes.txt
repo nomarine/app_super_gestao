@@ -1,0 +1,2 @@
+Comandos:
+Listar middleware: php artisan route:list
