@@ -8,7 +8,13 @@ use App\User;
 class LoginController extends Controller
 {
     public function index(Request $request){
-        return view('site.login', ['titulo' => 'Login']);
+        $erro = '';
+        
+        if($request->get('erro') == 1){
+            $erro = 'O usuário ou senha estão incorretos';
+        };
+
+        return view('site.login', ['titulo' => 'Login', 'erro' => $erro]);
     }
 
     public function autenticar(Request $request){
@@ -43,7 +49,7 @@ class LoginController extends Controller
         if(isset($user->name)){
             echo "<h5 style='color:green'>Usuário válido</h5>";
         } else {
-            echo "<h5 style='color:red'>Usuário inválido</h5>";
+            return redirect()->route('site.login', ['erro' => 1]);
         };
         /* echo "<pre>";
             print_r($user);

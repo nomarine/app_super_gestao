@@ -23,7 +23,7 @@ Route::get('contato', 'ContatoController@contato')->name('site.contato');
 Route::get('contato_registro', 'ContatoController@registro')->name('site.contato_registro');
 Route::post('contato', 'ContatoController@salvar')->name('site.contato');
 
-Route::get('login', 'LoginController@index')->name('site.login');
+Route::get('login/{erro?}', 'LoginController@index')->name('site.login');
 Route::post('login', 'LoginController@autenticar')->name('site.login');
 
 Route::middleware('autenticacao:padrao,')
