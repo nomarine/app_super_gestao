@@ -15,7 +15,7 @@ class Autenticacao
      */
     public function handle($request, Closure $next, $metodo_autenticacao, $perfil)
     {
-        if($metodo_autenticacao == 'padrao'){
+        /* if($metodo_autenticacao == 'padrao'){
             echo "Validar credenciais no banco de dados";
         } else if($metodo_autenticacao == 'ldap'){
             echo "Validar credenciais no Active Directory";
@@ -33,6 +33,14 @@ class Autenticacao
             return $next($request);    
         } else {
             return Response('Acesso negado. Sem permissão de acesso.');
+        } */
+
+        session_start();
+
+        if(isset($_SESSION['email']) && $_SESSION['email'] != '') {
+            return $next($request);
+        } else {
+            return redirect()->route('site.login', ['erro' => 2]);
         }
     }
 }

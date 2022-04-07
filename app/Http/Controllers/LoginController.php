@@ -12,7 +12,11 @@ class LoginController extends Controller
         
         if($request->get('erro') == 1){
             $erro = 'O usuário ou senha estão incorretos';
-        };
+        }
+
+        if($request->get('erro') == 2){
+            $erro = 'A página requer autenticação do usuário';
+        }
 
         return view('site.login', ['titulo' => 'Login', 'erro' => $erro]);
     }
@@ -47,7 +51,12 @@ class LoginController extends Controller
                      ->first();
 
         if(isset($user->name)){
-            echo "<h5 style='color:green'>Usuário válido</h5>";
+            session_start();
+
+            $_SESSION['name'] = $user->name;
+            $_SESSION['email'] = $user->email;
+
+            return redirect()->route('app.clientes');
         } else {
             return redirect()->route('site.login', ['erro' => 1]);
         };
