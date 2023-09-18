@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Autenticacao
+class AutenticacaoMiddleware
 {
     /**
      * Handle an incoming request.

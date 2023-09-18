@@ -26,7 +26,7 @@ Route::post('contato', 'ContatoController@salvar')->name('site.contato');
 Route::get('login/{erro?}', 'LoginController@index')->name('site.login');
 Route::post('login', 'LoginController@autenticar')->name('site.login');
 
-Route::middleware('autenticacao:padrao,')
+Route::middleware('autenticacao:padrao,visitante,p3,p4')
     ->prefix('app')
     ->group(function() {
         Route::get('fornecedor', 'FornecedorController@index')->name('app.fornecedor');

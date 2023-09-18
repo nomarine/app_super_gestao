@@ -40,8 +40,8 @@ class LoginController extends Controller
         $email = $request->get('login');
         $senha = $request->get('senha');
 
-        echo "Usuário: $email | Senha: $senha";
-        echo "<br>";
+/*         echo "Usuário: $email | Senha: $senha";
+        echo "<br>"; */
 
         $user = new User();
 
@@ -56,6 +56,7 @@ class LoginController extends Controller
             $_SESSION['name'] = $user->name;
             $_SESSION['email'] = $user->email;
 
+            // dd($_SESSION);
             return redirect()->route('app.clientes');
         } else {
             return redirect()->route('site.login', ['erro' => 1]);
