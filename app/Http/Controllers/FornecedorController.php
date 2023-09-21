@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class FornecedorController extends Controller
 {
     public function index() {
-        $fornecedores = [
+        return view('app.fornecedor');
+ /*        $fornecedores = [
             0 => [
                 'nome' => 'EDP', 
                 'status' => 'A',
@@ -38,6 +39,6 @@ class FornecedorController extends Controller
                 ]
         ];
 
-        return view('app.fornecedor.index', compact('fornecedores'));
+        return view('app.fornecedor.index', compact('fornecedores')); */
     }
 }
