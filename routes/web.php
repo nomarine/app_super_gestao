@@ -37,6 +37,7 @@ Route::middleware('autenticacao:padrao,visitante,p3,p4')
         Route::get('fornecedor', 'FornecedorController@index')->name('app.fornecedor');
         Route::post('fornecedor/consultar', 'FornecedorController@consultar')->name('app.fornecedor.consultar');
         Route::get('fornecedor/cadastrar', 'FornecedorController@cadastrar')->name('app.fornecedor.cadastrar');
+        Route::post('fornecedor/cadastrar', 'FornecedorController@cadastrar')->name('app.fornecedor.cadastrar');
 });
 
 Route::get('teste/{p1}/{p2}', 'TesteController@teste')->name('site.teste');
