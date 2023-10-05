@@ -200,3 +200,20 @@ button:hover {
     margin-left: auto;
     margin-right: auto;
 }
+
+.tabela-fornecedor {
+    margin-top: 50px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.pagination li{
+    display: inline;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.pagination ul{
+    list-style-type: none;
+}

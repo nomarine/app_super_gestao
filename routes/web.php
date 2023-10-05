@@ -35,9 +35,14 @@ Route::middleware('autenticacao:padrao,visitante,p3,p4')
         Route::get('cliente', 'ClienteController@index')->name('app.cliente');
 
         Route::get('fornecedor', 'FornecedorController@index')->name('app.fornecedor');
+        Route::get('fornecedor/consultar', 'FornecedorController@consultar')->name('app.fornecedor.consultar');
         Route::post('fornecedor/consultar', 'FornecedorController@consultar')->name('app.fornecedor.consultar');
         Route::get('fornecedor/cadastrar', 'FornecedorController@cadastrar')->name('app.fornecedor.cadastrar');
         Route::post('fornecedor/cadastrar', 'FornecedorController@cadastrar')->name('app.fornecedor.cadastrar');
+        Route::get('fornecedor/editar/{id}/{msg?}', 'FornecedorController@editar')->name('app.fornecedor.editar');
+        Route::get('fornecedor/excluir/{id}', 'FornecedorController@excluir')->name('app.fornecedor.excluir');
+
+        Route::resource('produto', 'ProdutoController');
 });
 
 Route::get('teste/{p1}/{p2}', 'TesteController@teste')->name('site.teste');
