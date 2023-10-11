@@ -195,7 +195,13 @@ button:hover {
     margin: 0px 15px 0px 15px;
 }
 
-.form-fornecedor {
+.form-cadastro {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-consulta {
     width: 30%;
     margin-left: auto;
     margin-right: auto;

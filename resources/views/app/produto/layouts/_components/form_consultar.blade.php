@@ -1,4 +1,4 @@
-<div class="form-consulta">
+<div class="form-fornecedor">
     <form method="post" action={{ route('app.fornecedor.consultar') }}>
         @csrf
         <input name="nome" type="text" placeholder="Nome" class="borda-preta">

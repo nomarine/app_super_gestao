@@ -1,5 +1,4 @@
-<div class="form-fornecedor">
-    {{ $msg ?? '' }}   
+<div class="form-cadastro">
     <form method="post" action={{ route('app.fornecedor.cadastrar') }}>
         @csrf
         <input hidden name="id" value="{{ $fornecedor->id  ?? '' }}">

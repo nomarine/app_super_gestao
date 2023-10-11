@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Produto;
+use App\Unidade;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -12,10 +13,11 @@ class ProdutoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        echo 'Index';
+        $produtos = Produto::paginate(1);
+
+        return view('app.produto.index', ['produtos'=>$produtos, 'request'=>$request]);
     }
 
     /**
@@ -23,10 +25,10 @@ class ProdutoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
-        echo 'Create';
+        $unidades = Unidade::all();
+        return view('app.produto.create', ['unidades'=>$unidades, 'request'=>$request]);
     }
 
     /**
