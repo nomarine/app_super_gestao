@@ -13,7 +13,7 @@
         <select name="unidade_id"> 
             <option disabled selected value=""><----- Selecione a unidade -----></option>
             @foreach($unidades as $unidade)
-                <option value={{ $unidade->id }} {{ old('unidade_id') == $unidade->id ? 'selected' : ''}}>{{ $unidade->descricao }}</option>
+                <option value={{ $unidade->id }} {{ $produto->unidade_id ?? old('unidade_id') == $unidade->id ? 'selected' : ''}}>{{ $unidade->descricao }}</option>
             @endforeach
         </select>
         {{ $errors->has('unidade_id') ? $errors->first('unidade_id') : '' }}

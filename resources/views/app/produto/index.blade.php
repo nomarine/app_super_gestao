@@ -12,14 +12,15 @@
         @include('app.produto.layouts._partials.menu')
 
         <div class="informacao-pagina">
-            <div class="tabela-fornecedor">
-                <table border=1 width="100%">
+            <div>
+                <table border=1 width="100%" class="tabela-produto">
                     <thead>
                         <tr>
                             <th>Nome</th>
                             <th>Descrição</th>
                             <th>Peso</th>
                             <th>ID da Unidade</th>
+                            <th></th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -31,8 +32,15 @@
                             <td>{{$produto->descricao}}</td>
                             <td>{{$produto->peso}}</td>
                             <td>{{$produto->unidade_id}}</td>
-                            <td><a href=''>Editar</a></td>
-                            <td><a href=''>Excluir</a></td>
+                            <td><a href={{ route('produto.show', ['produto'=>$produto->id]) }}>Ver</a></td>
+                            <td><a href={{ route('produto.edit', ['produto'=>$produto->id]) }}>Editar</a></td>
+                            <td>
+                                <form id="form_{{$produto->id}}" method="post" action="{{route('produto.destroy', ['produto'=>$produto->id])}}"">
+                                    @method('DELETE')
+                                    @csrf
+                                    {{-- <button type=submit>Excluir</button> --}}
+                                    <a href=# onclick="document.getElementById('form_{{$produto->id}}').submit()">Excluir</a></td>
+                                </form>
                         </tr>
                     @endforeach
                     </tbody>
