@@ -15,7 +15,7 @@ class ProdutoController extends Controller
      */
     public function index(Request $request)
     {
-        $produtos = Produto::paginate(1);
+        $produtos = Produto::paginate(5);
 
         return view('app.produto.index', ['produtos'=>$produtos, 'request'=>$request]);
     }
@@ -39,7 +39,27 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $regras = [
+            'nome'=>'required|min:2|max:40',
+            'descricao'=>'required|min:2|max:300',
+            'peso'=>'required|integer',
+            'unidade_id'=>'required|exists:unidades,id'
+        ];
+
+        $feeback = [
+            'required'=>'O campo :attribute é obrigatório.',
+            'unidade_id.required'=>'A unidade deve ser selecionada.',
+            'min'=>'O campo :attribute deve ter no mínimo :min caracteres.',
+            'max'=>'O campo :attribute deve ter no máximo :max caracteres.',
+            'integer'=>'Informe apenas valores numéricos inteiros.',
+            'exists'=>'Unidade não identificada.'
+        ];
+
+        $request->validate($regras, $feeback);
+
+        Produto::create($request->all());
+
+        return redirect()->route('produto.index');
     }
 
     /**
