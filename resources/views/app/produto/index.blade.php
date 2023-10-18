@@ -13,7 +13,7 @@
 
         <div class="informacao-pagina">
             <div>
-                <table border=1 width="100%" class="tabela-produto">
+                <table border=1 class="tabela-produto">
                     <thead>
                         <tr>
                             <th>Nome</th>

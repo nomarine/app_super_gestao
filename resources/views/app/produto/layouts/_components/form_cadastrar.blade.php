@@ -1,6 +1,11 @@
 <div class="form-cadastro">
-    <form method="post" action="{{route('produto.store')}}">
-        @csrf
+    @if(isset($produto->id))
+        <form method="post" action="{{route('produto.update', ['produto'=>$produto->id])}}">
+        @method('PUT')
+    @else
+        <form method="post" action="{{route('produto.store')}}">
+    @endif
+    @csrf
         <input name="nome" type="text" value="{{ $produto->nome ?? old('nome') }}" placeholder="Nome" class="borda-preta">
         {{ $errors->has('nome') ? $errors->first('nome') : '' }}
 
@@ -18,6 +23,10 @@
         </select>
         {{ $errors->has('unidade_id') ? $errors->first('unidade_id') : '' }}
 
-        <button type="submit">Cadastrar</button>
+        @if(isset($produto->id))
+            <button type="submit">Salvar alterações</button>
+        @else
+            <button type="submit">Cadastrar</button>
+        @endif
     </form>
 </div>

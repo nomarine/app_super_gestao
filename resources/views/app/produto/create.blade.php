@@ -6,7 +6,11 @@
     <div class="conteudo-pagina">
     
         <div class="titulo-pagina-2">
-            <p>Cadastro de Produtos</p>
+            @if(isset($produto->id))
+                <p>Edição de Produto</p>
+            @else
+                <p>Cadastro de Produtos</p>
+            @endif
         </div>
 
         @include('app.produto.layouts._partials.menu')

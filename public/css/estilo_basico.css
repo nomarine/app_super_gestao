@@ -215,11 +215,22 @@ button:hover {
 }
 
 .tabela-produto {
+    display:inline-block;
     margin-top: 50px;
     text-align:left;
-    width: 30%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.tabela-fornecedor table, .tabela-produto table {
+    table-layout: fixed;
+    width: 100%; /* Set the table width to 100% of its container */
+}
+
+.tabela-fornecedor td, .tabela-produto td {
+    word-wrap: break-word; /* Allow long words to wrap and prevent cell overflow */
+    text-align: left; /* You can adjust the text alignment as needed */
+    padding: 5px; /* Add padding for cell content spacing */
 }
 
 .pagination li{
