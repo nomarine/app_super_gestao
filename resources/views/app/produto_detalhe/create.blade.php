@@ -9,7 +9,7 @@
             <p>Detalhamento do Produto</p>
         </div>
 
-        @include('app.produto.layouts._partials.menu')
+        @include('app.produto_detalhe.layouts._partials.menu')
 
         <div class="informacao-pagina">
             @component('app.produto_detalhe.layouts._components.form_create_edit', ['unidades'=>$unidades])

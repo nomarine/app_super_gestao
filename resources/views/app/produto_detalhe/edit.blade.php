@@ -6,13 +6,13 @@
     <div class="conteudo-pagina">
     
         <div class="titulo-pagina-2">
-            <p>Edição do Produto</p>
+            <p>Edição do Detalhamento do Produto</p>
         </div>
 
-        @include('app.produto.layouts._partials.menu')
+        @include('app.produto_detalhe.layouts._partials.menu')
 
         <div class="informacao-pagina">
-            @component('app.produto.layouts._components.form_create_edit', ['produto'=>$produto, 'unidades'=>$unidades])
+            @component('app.produto_detalhe.layouts._components.form_create_edit', ['produto_detalhe'=>$produto_detalhe, 'unidades'=>$unidades])
             @endcomponent
         </div>
 
