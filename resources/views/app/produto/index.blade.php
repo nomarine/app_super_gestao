@@ -13,6 +13,7 @@
 
         <div class="informacao-pagina">
             <div>
+                {{ $produtos->toJson() }}
                 <table border=1 class="tabela-produto">
                     <thead>
                         <tr>
