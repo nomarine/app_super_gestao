@@ -13,4 +13,8 @@ class ProdutoDetalhe extends Model
         'comprimento',
         'unidade_id'
     ];
+
+    public function produto(){
+        return $this->belongsTo('App\Produto');
+    }
 }
