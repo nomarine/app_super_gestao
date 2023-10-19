@@ -18,16 +18,6 @@ class ProdutoController extends Controller
     {
         $produtos = Produto::paginate(5);
 
-        foreach($produtos as $key=>$produto){
-            $produto_detalhe = ProdutoDetalhe::where('produto_id', $produto->id)->first();
-
-            if(isset($produto_detalhe)){
-                $produtos[$key]['comprimento'] = $produto_detalhe->comprimento;
-                $produtos[$key]['altura'] = $produto_detalhe->altura;
-                $produtos[$key]['largura'] = $produto_detalhe->largura;
-            }
-        }
-
         return view('app.produto.index', ['produtos'=>$produtos, 'request'=>$request]);
     }
 
