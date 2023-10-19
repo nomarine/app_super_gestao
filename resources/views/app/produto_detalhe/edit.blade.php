@@ -10,8 +10,9 @@
         </div>
 
         @include('app.produto_detalhe.layouts._partials.menu')
-
+        
         <div class="informacao-pagina">
+            {{$produto_detalhe->toJson()}}
             <h4>Produto</h4>
             <div>Nome: {{$produto_detalhe->item->nome}}</div>
             <br>
@@ -19,6 +20,7 @@
             <br>
             @component('app.produto_detalhe.layouts._components.form_create_edit', ['produto_detalhe'=>$produto_detalhe, 'unidades'=>$unidades])
             @endcomponent
+            {{$produto_detalhe->toJson()}}
         </div>
 
     </div>
