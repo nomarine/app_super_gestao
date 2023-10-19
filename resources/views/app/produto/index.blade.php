@@ -13,6 +13,7 @@
 
         <div class="informacao-pagina">
             <div>
+                {{$produtos->toJson()}}
                 <table border=1 class="tabela-produto">
                     <thead>
                         <tr>
@@ -54,6 +55,7 @@
                 {{ $produtos->appends($request->all())->links() }} 
                 <p>Exibindo {{ $produtos->count() }} produtos de {{$produtos->total()}} ({{$produtos->firstitem()}} ao {{$produtos->lastitem()}})</p>
             </div>
+            {{$produtos->toJson()}}
         </div>
 
     </div>
