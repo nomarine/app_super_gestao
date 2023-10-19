@@ -18,4 +18,8 @@ class Fornecedor extends Model
     ];
 
     protected $table = 'fornecedores';
+
+    public function produtos(){
+        return $this->hasMany('App\Produto', 'fornecedor_id', 'id');
+    }
 }
