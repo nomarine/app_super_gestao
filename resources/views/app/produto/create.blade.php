@@ -12,7 +12,7 @@
         @include('app.produto.layouts._partials.menu')
 
         <div class="informacao-pagina">
-            @component('app.produto.layouts._components.form_create_edit', ['unidades'=>$unidades])
+            @component('app.produto.layouts._components.form_create_edit', ['unidades'=>$unidades, 'fornecedores'=>$fornecedores])
             @endcomponent
         </div>
 

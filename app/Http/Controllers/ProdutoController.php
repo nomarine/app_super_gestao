@@ -6,6 +6,7 @@ use App\Produto;
 use App\Item;
 use App\ProdutoDetalhe;
 use App\Unidade;
+use App\Fornecedor;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -30,7 +31,8 @@ class ProdutoController extends Controller
     public function create(Request $request)
     {
         $unidades = Unidade::all();
-        return view('app.produto.create', ['unidades'=>$unidades, 'request'=>$request]);
+        $fornecedores = Fornecedor::all();
+        return view('app.produto.create', ['unidades'=>$unidades, 'fornecedores'=>$fornecedores, 'request'=>$request]);
     }
 
     /**
@@ -45,7 +47,8 @@ class ProdutoController extends Controller
             'nome'=>'required|min:2|max:40',
             'descricao'=>'required|min:2|max:300',
             'peso'=>'required|integer',
-            'unidade_id'=>'required|exists:unidades,id'
+            'unidade_id'=>'required|exists:unidades,id',
+            'fornecedor_id'=>'required|exists:fornecedores,id'
         ];
 
         $feeback = [
@@ -54,12 +57,12 @@ class ProdutoController extends Controller
             'min'=>'O campo :attribute deve ter no mínimo :min caracteres.',
             'max'=>'O campo :attribute deve ter no máximo :max caracteres.',
             'integer'=>'Informe apenas valores numéricos inteiros.',
-            'exists'=>'Unidade não identificada.'
+            'exists'=>':attribute inexistente.'
         ];
 
         $request->validate($regras, $feeback);
 
-        Produto::create($request->all());
+        Item::create($request->all());
 
         return redirect()->route('produto.index');
     }
@@ -78,24 +81,44 @@ class ProdutoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Produto  $produto
+     * @param  \App\Item  $produto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Produto $produto)
+    public function edit(Item $produto)
     {
         $unidades = Unidade::all();
-        return view('app.produto.edit', ['produto'=>$produto, 'unidades'=>$unidades]);
+        $fornecedores = Fornecedor::all();
+        return view('app.produto.edit', ['produto'=>$produto, 'unidades'=>$unidades, 'fornecedores'=>$fornecedores,]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Produto  $produto
+     * @param  \App\Item  $produto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Produto $produto)
+    public function update(Request $request, Item $produto)
     {
+        $regras = [
+            'nome'=>'required|min:2|max:40',
+            'descricao'=>'required|min:2|max:300',
+            'peso'=>'required|integer',
+            'unidade_id'=>'required|exists:unidades,id',
+            'fornecedor_id'=>'required|exists:fornecedores,id'
+        ];
+
+        $feeback = [
+            'required'=>'O campo :attribute é obrigatório.',
+            'unidade_id.required'=>'A unidade deve ser selecionada.',
+            'min'=>'O campo :attribute deve ter no mínimo :min caracteres.',
+            'max'=>'O campo :attribute deve ter no máximo :max caracteres.',
+            'integer'=>'Informe apenas valores numéricos inteiros.',
+            'exists'=>':attribute inexistente.'
+        ];
+
+        $request->validate($regras, $feeback);
+
         $produto->update($request->all());
         
         return redirect()->route('produto.show', ['produto'=>$produto->id]);
