@@ -1,18 +1,18 @@
 @extends('app.layouts.basico') 
 
-@section('titulo', 'Produtos')
+@section('titulo', 'Clientes')
 
 @section('conteudo')
     <div class="conteudo-pagina">
     
         <div class="titulo-pagina-2">
-            <p>Cadastro de Produtos</p>
+            <p>Cadastro de Clientes</p>
         </div>
 
-        @include('app.produto.layouts._partials.menu')
+        @include('app.cliente.layouts._partials.menu')
 
         <div class="informacao-pagina">
-            @component('app.produto.layouts._components.form_create_edit', ['unidades'=>$unidades, 'fornecedores'=>$fornecedores])
+            @component('app.cliente.layouts._components.form_create_edit')
             @endcomponent
         </div>
 

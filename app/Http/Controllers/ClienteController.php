@@ -26,7 +26,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('app.cliente.create');
     }
 
     /**
@@ -37,7 +37,23 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $regras = [
+            'nome' => 'required|min:2|max:40'
+        ];
+
+        $feedback = [
+            'required'=>'Obrigatório informar :attribute.',
+            'min'=>':attribute deve ter no mínimo :min caracteres.',
+            'max'=>':attribute deve ter no máximo :max caracteres.',
+        ];
+
+        $request->validate($regras, $feedback);
+
+        $cliente = new Cliente();
+        $cliente->nome = $request->get('nome');
+        $cliente->save();
+
+        return redirect()->route('cliente.index');
     }
 
     /**
@@ -54,12 +70,12 @@ class ClienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Cliente $cliente
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($cliente)
     {
-        //
+        return view('app.cliente.edit', ['cliente'=>$cliente]);
     }
 
     /**
@@ -71,7 +87,23 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $regras = [
+            'nome' => 'required|min:2|max:40'
+        ];
+
+        $feedback = [
+            'required'=>'Obrigatório informar :attribute.',
+            'min'=>':attribute deve ter no mínimo :min caracteres.',
+            'max'=>':attribute deve ter no máximo :max caracteres.',
+        ];
+
+        $request->validate($regras, $feedback);
+
+        $cliente = new Cliente();
+        $cliente->nome = $request->get('nome');
+        $cliente->save();
+
+        return redirect()->route('cliente.index');
     }
 
     /**
