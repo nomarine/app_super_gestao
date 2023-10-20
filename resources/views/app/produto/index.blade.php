@@ -40,8 +40,8 @@
                             <td>{{$produto->itemDetalhe->comprimento ?? ''}}</td>
                             <td>{{$produto->itemDetalhe->altura ?? ''}}</td>
                             <td>{{$produto->itemDetalhe->largura ?? ''}}</td>
-                            <td>{{$produto->fornecedor->nome}}</td>
-                            <td>{{$produto->fornecedor->site}}</td>
+                            <td>{{$produto->fornecedor->nome ?? ''}}</td>
+                            <td>{{$produto->fornecedor->site ?? ''}}</td>
                             <td><a href={{ route('produto.show', ['produto'=>$produto->id]) }}>Ver</a></td>
                             <td><a href={{ route('produto.edit', ['produto'=>$produto->id]) }}>Editar</a></td>
                             <td>

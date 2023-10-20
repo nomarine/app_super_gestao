@@ -43,10 +43,5 @@ class AlterProdutosToFornecedores extends Migration
             $table->dropForeign('produtos_fornecedor_id_foreign');
             $table->dropColumn('fornecedor_id');
         });
-
-        Schema::table('fornecedores', function (Blueprint $table) {
-            $table->dropForeign('fornecedores_fornecedor_id_foreign');
-            $table->dropColumn('fornecedor_id');
-        });
     }
 }

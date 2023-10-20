@@ -12,8 +12,7 @@
         @include('app.fornecedor.layouts._partials.menu')
 
         <div class="informacao-pagina">
-            {{$fornecedores->toJson()}}
-            <div class="tabela-fornecedor">
+            <div class="tabela">
                 <table border=1 width="100%">
                     <thead>
                         <tr>
@@ -37,7 +36,7 @@
                         </tr>
                         <tr>
                             <td colspan="6">
-                                <p>Lista de Produtos</p>
+                                <p style="text-align:left; margin-left:20px">Lista de Produtos</p>
                                 <table border=1 style="margin:20px">
                                     <thead>
                                         <tr>

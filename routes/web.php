@@ -32,7 +32,6 @@ Route::middleware('autenticacao:padrao,visitante,p3,p4')
         Route::get('home', 'HomeController@index')->name('app.home');
         Route::get('sair', 'LoginController@sair')->name('app.sair');
         Route::get('produto', 'ProdutoController@index')->name('app.produto');
-        Route::get('cliente', 'ClienteController@index')->name('app.cliente');
 
         Route::get('fornecedor', 'FornecedorController@index')->name('app.fornecedor');
         Route::get('fornecedor/consultar', 'FornecedorController@consultar')->name('app.fornecedor.consultar');
@@ -43,8 +42,11 @@ Route::middleware('autenticacao:padrao,visitante,p3,p4')
         Route::get('fornecedor/excluir/{id}', 'FornecedorController@excluir')->name('app.fornecedor.excluir');
 
         Route::resource('produto', 'ProdutoController');
-
         Route::resource('produto-detalhe', 'ProdutoDetalheController');
+        Route::resource('cliente', 'ClienteController');
+        Route::resource('pedido', 'PedidoController');
+        Route::resource('pedido-rpoduto', 'PedidoProdutoController');
+        
 });
 
 Route::get('teste/{p1}/{p2}', 'TesteController@teste')->name('site.teste');
