@@ -1,4 +1,4 @@
-# Projeto do Curso de Laravel
+# Projeto do Curso de PHP, Laravel e Vue.js
 Aplicação didática do curso de PHP avançado utilizando a framework Laravel do professor Jroge Sant Ana.
 O projeto é uma aplicação web direcionada para a gestão de fornecedores, produtos e clientes, dividida entre uma extranet e uma intranet, onde são trabalhados os métodos CRUD para gestão da base de dados.
 
@@ -10,3 +10,5 @@ Nele foram aplicados os seguintes conhecimentos:
 - **Middlewares:** Interceptação de requisições e respostas utilizando Middlewares.  
 - **Routes:** Criação de rotas, grupos, verbos HTTP Get, Post, Delete, Put e Patch.  
 - **Manipulação e validação de formulários.**  
+
+Link do curso: https://www.udemy.com/course/curso-completo-do-desenvolvedor-laravel/
