@@ -1,6 +1,6 @@
 [Brazilian Portuguese](README.pt-br.md)
 
-# PHP, Laravel, and Vue.js Course Project
+# PHP, Laravel and Vue.js Course Project
 
 A didactic application for the advanced PHP course utilizing the Laravel framework by Professor Jorge Sant Ana.
 The project is a web application focused on managing suppliers, products, and customers, divided into an extranet and an intranet, where CRUD methods are used for database management.
