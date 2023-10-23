@@ -64,16 +64,17 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
-        //
+        $cliente = Cliente::find($id);
+        return view('app.cliente.show', ['cliente'=>$cliente]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Cliente $cliente
+     * @param  \App\Cliente $cliente
      * @return \Illuminate\Http\Response
      */
-    public function edit($cliente)
+    public function edit(Cliente $cliente)
     {
         return view('app.cliente.edit', ['cliente'=>$cliente]);
     }
@@ -99,7 +100,7 @@ class ClienteController extends Controller
 
         $request->validate($regras, $feedback);
 
-        $cliente = new Cliente();
+        $cliente = Cliente::find($id);
         $cliente->nome = $request->get('nome');
         $cliente->save();
 
@@ -109,11 +110,13 @@ class ClienteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Cliente $cliente
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cliente $cliente)
     {
-        //
+        $cliente->delete();
+
+        return redirect()->route('cliente.index');
     }
 }

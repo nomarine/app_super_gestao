@@ -48,7 +48,6 @@
                                 <form id="form_{{$produto->id}}" method="post" action="{{route('produto.destroy', ['produto'=>$produto->id])}}"">
                                     @method('DELETE')
                                     @csrf
-                                    {{-- <button type=submit>Excluir</button> --}}
                                     <a href=# onclick="document.getElementById('form_{{$produto->id}}').submit()">Excluir</a></td>
                                 </form>
                         </tr>

@@ -7,7 +7,7 @@
 
         <div class="esquerda">
             <div class="informacoes">
-                <h1>Sistema Rafael Feijão</h1>
+                <h1>Sistema Super Gestão</h1>
                 <p>Software para gestão de restaurantes, lanchonetes e cafeterias.<p>
                 <div class="chamada">
                     <img src={{ asset('img/check.png') }}>
@@ -33,7 +33,6 @@
                         'classe' => 'borda-branca',
                         'motivos_contato' => $motivos_contato
                     ])
-                    <h3>TESTCHY</h3>
                 @endcomponent
             </div>
         </div>
