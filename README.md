@@ -1,5 +1,6 @@
 # Projeto do Curso de Laravel
 Aplicação didática do curso de PHP avançado utilizando a framework Laravel do professor Jroge Sant Ana.
+O projeto é uma aplicação web direcionada para a gestão de fornecedores, produtos e clientes, dividida entre uma extranet e uma intranet, onde são trabalhados os métodos CRUD para gestão da base de dados.
 
 Nele foram aplicados os seguintes conhecimentos:
 
