@@ -9,6 +9,8 @@ Nele foram aplicados os seguintes conhecimentos:
 - **Seeders e Factories:** geração de massa para popular a base e realizar testes.  
 - **Middlewares:** Interceptação de requisições e respostas utilizando Middlewares.  
 - **Routes:** Criação de rotas, grupos, verbos HTTP Get, Post, Delete, Put e Patch.  
-- **Manipulação e validação de formulários.**  
+- **Manipulação e validação de formulários.**
+- **Eager vs. Lazy Loading.**
+- **Soft vs. Hard Delete.**
 
 Link do curso: https://www.udemy.com/course/curso-completo-do-desenvolvedor-laravel/
