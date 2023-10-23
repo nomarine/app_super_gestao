@@ -1,4 +1,4 @@
-[Brazilian Portuguese](README.pt-br.md)
+[Brazilian Portuguese version](README.pt-br.md)
 
 # PHP, Laravel and Vue.js Course Project
 

@@ -1,4 +1,4 @@
-[english](README.md)
+[English version](README.md)
 
 # Projeto do Curso de PHP, Laravel e Vue.js
 

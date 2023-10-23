@@ -27,7 +27,7 @@ class PedidoController extends Controller
      */
     public function create()
     {
-        //
+        return view('app.pedido.create');
     }
 
     /**
@@ -38,29 +38,53 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $regras = [
+
+        ];
+
+        $feedback = [
+            
+        ];
+
+        $request->validate($regras, $feedback);
+
+        Pedido::create($request->all());
+
+        return redirect()->route('pedido.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Pedido $pedido
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        return view('app.pedido.show', ['pedido'=>$pedido]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Pedido $pedido
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Pedido $pedido)
     {
-        //
+        $regras = [
+
+        ];
+
+        $feedback = [
+            
+        ];
+
+        $request->validate($regras, $feedback);
+
+        $pedido->update($request->all());
+
+        return redirect()->route('pedido.show');
     }
 
     /**
