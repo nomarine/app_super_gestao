@@ -1,16 +1,19 @@
-# Projeto do Curso de PHP, Laravel e Vue.js
-Aplicação didática do curso de PHP avançado utilizando a framework Laravel do professor Jroge Sant Ana.
-O projeto é uma aplicação web direcionada para a gestão de fornecedores, produtos e clientes, dividida entre uma extranet e uma intranet, onde são trabalhados os métodos CRUD para gestão da base de dados.
+[Brazilian Portuguese](README.pt-br.md)
 
-Nele foram aplicados os seguintes conhecimentos:
+# PHP, Laravel, and Vue.js Course Project
 
-- **Padrão de Projeto Model-View-Controller (MVC):** Criação de controladores e de views do lado do back-end da aplicação com a utilização do engine de views Blade.  
-- **Eloquent ORM, Migrations e Tinker:** gerenciamento do banco de dados MySQL.  
-- **Seeders e Factories:** geração de massa para popular a base e realizar testes.  
-- **Middlewares:** Interceptação de requisições e respostas utilizando Middlewares.  
-- **Routes:** Criação de rotas, grupos, verbos HTTP Get, Post, Delete, Put e Patch.  
-- **Manipulação e validação de formulários.**
+A didactic application for the advanced PHP course utilizing the Laravel framework by Professor Jorge Sant Ana.
+The project is a web application focused on managing suppliers, products, and customers, divided into an extranet and an intranet, where CRUD methods are used for database management.
+
+The following knowledge areas were applied in this project:
+
+- **Model-View-Controller (MVC) Design Pattern:** Creation of controllers and backend views using the Blade view engine.
+- **Eloquent ORM, Migrations, and Tinker:** Management of the MySQL database.
+- **Seeders and Factories:** Generation of data to populate the database and perform testing.
+- **Middlewares:** Interception of requests and responses using Middlewares.
+- **Routes:** Creation of routes, groups, HTTP verbs such as Get, Post, Delete, Put, and Patch.
+- **Form Handling and Validation.**
 - **Eager vs. Lazy Loading.**
 - **Soft vs. Hard Delete.**
 
-Link do curso: https://www.udemy.com/course/curso-completo-do-desenvolvedor-laravel/
+Course Link: [Complete Laravel Developer Course](https://www.udemy.com/course/curso-completo-do-desenvolvedor-laravel/)
