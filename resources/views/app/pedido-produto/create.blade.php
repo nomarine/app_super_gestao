@@ -16,11 +16,27 @@
                 <h4>Detalhes do Pedido</h4>
                 <p>ID do Pedido: {{$pedido->id}}</p>
                 <p>ID do Cliente: {{$pedido->cliente_id}}</p>
+
+                <table width="100%" border=1>
+                    <thead>
+                        <th>ID do Produto</th>
+                        <th>Nome do Produto</th>
+                    </thead>
+
+                    <tbody>
+                        @foreach($pedido->produtos as $produto)
+                        <tr>
+                            <td>{{$produto->id}}</td>
+                            <td>{{$produto->nome}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             
                 <form method="post" action="{{route('pedido-produto.store', ['pedido'=>$pedido->id])}}">
                 @csrf
                     <select name="produto_id"> 
-                        <option disabled selected value=""><----- Selecione o produto -----></option>
+                        <option selected value=""><----- Selecione o produto -----></option>
                         @foreach($produtos as $produto)
                             <option value={{ $produto->id }} {{ ($pedido->produto_id ?? old('produto_id')) == $produto->id ? 'selected' : ''}}>{{ $produto->nome }}</option>
                         @endforeach
