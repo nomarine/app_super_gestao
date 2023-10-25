@@ -45,7 +45,9 @@ Route::middleware('autenticacao:padrao,visitante,p3,p4')
         Route::resource('produto-detalhe', 'ProdutoDetalheController');
         Route::resource('cliente', 'ClienteController');
         Route::resource('pedido', 'PedidoController');
-        Route::resource('pedido-rpoduto', 'PedidoProdutoController');
+        
+        Route::get('pedido-produto/create/{pedido}', 'PedidoProdutoController@create')->name('pedido-produto.create');
+        Route::post('pedido-produto/store/{pedido}', 'PedidoProdutoController@store')->name('pedido-produto.store');
         
 });
 
