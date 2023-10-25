@@ -12,7 +12,7 @@
         @include('app.pedido.layouts._partials.menu')
 
         <div class="informacao-pagina">
-            @component('app.pedido.layouts._components.form_create_edit', ['clientes'=>$clientes])
+            @component('app.pedido.layouts._components.form_create_edit', ['pedido'=>$pedido, 'clientes'=>$clientes])
             @endcomponent
         </div>
 

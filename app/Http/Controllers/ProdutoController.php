@@ -32,7 +32,7 @@ class ProdutoController extends Controller
     {
         $unidades = Unidade::all();
         $fornecedores = Fornecedor::all();
-        return view('app.produto.create', ['unidades'=>$unidades, 'fornecedores'=>$fornecedores, 'request'=>$request]);
+        return view('app.produto.create', ['unidades'=>$unidades, 'fornecedores'=>$fornecedores]);
     }
 
     /**

@@ -27,10 +27,10 @@
                         <tr>
                             <td>{{$pedido->id}}</td>
                             <td>{{$pedido->cliente_id}}</td>
-                            <td><a href='{{route('app.pedido.show', ['pedido'=>$pedido->id])}}'>Ver</a></td>
-                            <td><a href='{{route('app.pedido.edit', ['pedido'=>$pedido->id])}}'>Editar</a></td>
+                            <td><a href='{{route('pedido.show', ['pedido'=>$pedido->id])}}'>Ver</a></td>
+                            <td><a href='{{route('pedido.edit', ['pedido'=>$pedido->id])}}'>Editar</a></td>
                             <td>
-                                <form id='form_pedido_{{$pedido->id}}' method='post' action='{{route('app.pedido.destroy', ['pedido'=>$pedido->id])}}'>
+                                <form id='form_pedido_{{$pedido->id}}' method='post' action='{{route('pedido.destroy', ['pedido'=>$pedido->id])}}'>
                                     @csrf
                                     @method('DELETE')
                                     <a href=# onlick="document.getElementById('form_pedido_{{$pedido->id}}').submit()">Excluir</a></td>

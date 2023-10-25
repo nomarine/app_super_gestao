@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Pedido;
+use App\Cliente;
 
 class PedidoController extends Controller
 {
@@ -27,7 +28,8 @@ class PedidoController extends Controller
      */
     public function create()
     {
-        return view('app.pedido.create');
+        $clientes = Cliente::all();
+        return view('app.pedido.create', ['clientes'=>$clientes]);
     }
 
     /**
@@ -39,16 +41,19 @@ class PedidoController extends Controller
     public function store(Request $request)
     {
         $regras = [
-
+            'cliente_id'=>'required|exists:clientes,id'
         ];
 
         $feedback = [
-            
+            'required'=>'O campo :attribute é obrigatório.',
+            'exists'=>':attribute inexistente.'
         ];
 
         $request->validate($regras, $feedback);
 
-        Pedido::create($request->all());
+        $pedido = new Pedido();
+        $pedido->cliente_id = $request->get('cliente_id');
+        $pedido->save();
 
         return redirect()->route('pedido.index');
     }
@@ -59,7 +64,7 @@ class PedidoController extends Controller
      * @param  \App\Pedido $pedido
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Pedido $pedido)
     {
         return view('app.pedido.show', ['pedido'=>$pedido]);
     }
@@ -72,19 +77,8 @@ class PedidoController extends Controller
      */
     public function edit(Pedido $pedido)
     {
-        $regras = [
-
-        ];
-
-        $feedback = [
-            
-        ];
-
-        $request->validate($regras, $feedback);
-
-        $pedido->update($request->all());
-
-        return redirect()->route('pedido.show');
+        $clientes = Cliente::all();
+        return view('app.pedido.edit', ['pedido'=>$pedido, 'clientes'=>$clientes]);
     }
 
     /**
@@ -96,7 +90,22 @@ class PedidoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $regras = [
+            'cliente_id'=>'required|exists:clientes,id'
+        ];
+
+        $feedback = [
+            'required'=>'O campo :attribute é obrigatório.',
+            'exists'=>':attribute inexistente.'
+        ];
+
+        $request->validate($regras, $feedback);
+
+        $pedido = Pedido::find($id);
+        $pedido->cliente_id = $request->get('cliente_id');
+        $pedido->update();
+
+        return redirect()->route('pedido.show', ['pedido'=>$pedido]);
     }
 
     /**
@@ -107,6 +116,8 @@ class PedidoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pedido::find($id)->delete();
+
+        return redirect()->route('pedido.index');
     }
 }
