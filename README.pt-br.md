@@ -15,6 +15,6 @@ Nele foram aplicados os seguintes conhecimentos:
 - **Manipulação e validação de formulários.**
 - **Eager vs. Lazy Loading.**
 - **Soft vs. Hard Delete.**
-- **Relações de banco de dados 1-1, 1-N e N-N: utilização das funções hasOne, hasMany, belongsTo, belongsToMany, attach, detach.**
+- **Relações de banco de dados 1-1, 1-N e N-N:** utilização das funções hasOne, hasMany, belongsTo, belongsToMany, attach, detach.
 
 Link do curso: https://www.udemy.com/course/curso-completo-do-desenvolvedor-laravel/
