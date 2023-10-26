@@ -57,6 +57,7 @@ class PedidoProdutoController extends Controller
         ]);
 
 /* 
+        Attach para multi registros
         $pedido->produtos()->attach([
             $request->get('produto_id')=>[
                 'quantidade'=>$request->get('quantidade')
@@ -106,8 +107,17 @@ class PedidoProdutoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pedido $pedido, Produto $produto)
     {
-        //
+/*      Método convencional
+        PedidoProduto::where([
+            'produto_id'=>$produto->id,
+            'pedido_id'=>$pedido->id
+        ])->delete();
+ */
+
+        $pedido->produtos()->detach($produto->id);
+
+        return redirect()->route('pedido-produto.create', ['pedido'=>$pedido->id]);
     }
 }

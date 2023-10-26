@@ -35,8 +35,9 @@
                                 <form id='form_pedido_{{$pedido->id}}' method='post' action='{{route('pedido.destroy', ['pedido'=>$pedido->id])}}'>
                                     @csrf
                                     @method('DELETE')
-                                    <a href=# onlick="document.getElementById('form_pedido_{{$pedido->id}}').submit()">Excluir</a></td>
+                                    <a href=# onclick="document.getElementById('form_pedido_{{$pedido->id}}').submit()">Excluir</a>
                                 </form>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
