@@ -44,6 +44,9 @@
                         @endforeach
                     </select>
                     {{ $errors->has('produto_id') ? $errors->first('produto_id') : '' }}
+
+                    <input type='number' name='quantidade' placeholder='Quantidade' value={{$produto->quantidade ?? old('quantidade')}}>
+                    {{ $errors->has('quantidade') ? $errors->first('quantidade') : '' }}
             
                     @if(isset($produto->id))
                         <button type="submit">Salvar alterações</button>
