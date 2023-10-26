@@ -15,5 +15,6 @@ The following knowledge areas were applied in this project:
 - **Form Handling and Validation.**
 - **Eager vs. Lazy Loading.**
 - **Soft vs. Hard Delete.**
+- **1-1, 1-N and N-N database relationships:** use of functions like hasOne, hasMany, belongsTo, belongsToMany, attach, detach.
 
 Course Link: [Complete Laravel Developer Course](https://www.udemy.com/course/curso-completo-do-desenvolvedor-laravel/)
